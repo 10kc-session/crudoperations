@@ -1,6 +1,14 @@
 const express = require('express');
+const cors = require('cors');
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+// Enable CORS for all routes
+app.use(cors({
+    origin: 'https://frontend-pi-olive-82.vercel.app', // Change this to your frontend URL
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allow these methods
+    allowedHeaders: ['Content-Type'], // Allow content type header
+}));
 
 // Middleware to parse JSON requests
 app.use(express.json());

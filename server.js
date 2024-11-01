@@ -2,16 +2,6 @@ const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Simple route for testing
-app.get('/', (req, res) => {
-    res.send('Hello, World!');
-});
-
-// Start the server
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
-});
-
 // Middleware to parse JSON requests
 app.use(express.json());
 
@@ -66,3 +56,12 @@ app.delete('/users/:id', (req, res) => {
     res.json(deletedUser);
 });
 
+// Start the server
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+});
+
+// Default route for testing
+app.get('/', (req, res) => {
+    res.send('Hello, World!');
+});
